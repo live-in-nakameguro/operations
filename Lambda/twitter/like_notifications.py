@@ -71,6 +71,16 @@ def execute(user_name):
     print(tweet_contents)
     tweet(tweet_contents)
 
+
+def lambda_handler(event, context):
+    '''
+    {"account": "YabaiSkyYasan"}
+    '''
+    execute(event.get('account'))
+
+
 if __name__=='__main__':
     # execute('kokolifeowataww')
-    execute('SkyGonZabuRou')
+    # execute('SkyGonZabuRou')
+    # execute('YabaiSkyYasan')
+    execute('iorimoe_five')
