@@ -1,3 +1,4 @@
+import axios from "axios";
 import React from 'react';
 
 const initToDoList = [
@@ -19,6 +20,29 @@ export class Todo extends React.Component {
         this.state = {
             toDoList: initToDoList
         };
+    }
+
+    getToDoData = async () => {
+        try {
+            const { data } = await axios.get("api/todoitems");
+            console.log(data);
+            this.setState({toDoList: data});
+          } catch (e) {
+            console.error(e);
+          }
+    
+    }
+
+    addToDo = async (id, name) => {
+        //ToDo
+    }
+
+    deleteToDo = async (id) => {
+        //ToDo
+    }
+
+    updateToDo = () => {
+        //ToDo
     }
 
     changeToDoStatus = id => {
@@ -69,6 +93,11 @@ export class Todo extends React.Component {
                     </button>
                 </div>
                 {this.showToDoList()}
+                <div>
+                    <button onClick={this.getToDoData}>
+                        TEST
+                    </button>
+                </div>
             </div>
         );
     }
